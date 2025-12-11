@@ -1,0 +1,328 @@
+export interface Leader {
+  id: string;
+  name: string;
+  position: string;
+  department: string;
+  description: string;
+  email: string;
+  phone: string;
+  location: string;
+  joinDate: string;
+  teamSize: number;
+  achievements: string[];
+  image?: string;
+  is_cabinet?: boolean;
+  college?: {
+    id: string;
+    name: string;
+    leader_name: string;
+    leader_image?: string;
+  };
+  college_id?: string | null;
+}
+
+// Mock leaders data for public view
+export const mockLeaders: Leader[] = [
+  {
+    id: '1',
+    name: 'Sarah Johnson',
+    position: 'Chief Executive Officer',
+    department: 'Executive',
+    description: 'Sarah brings over 15 years of leadership experience in technology and innovation. She has been instrumental in driving our company\'s growth and establishing our market presence. Her vision focuses on sustainable growth, employee development, and customer satisfaction.',
+    email: 'sarah.johnson@company.com',
+    phone: '+1 (555) 123-4567',
+    location: 'New York, NY',
+    joinDate: 'January 2020',
+    teamSize: 200,
+    achievements: [
+      'Led company through 300% revenue growth',
+      'Named Tech Leader of the Year 2023',
+      'Established partnerships with Fortune 500 companies',
+      'Implemented company-wide sustainability initiatives',
+    ],
+    image: '',
+  },
+  {
+    id: '2',
+    name: 'David Wilson',
+    position: 'Chief Technology Officer',
+    department: 'Technology',
+    description: 'David is a seasoned technology leader with expertise in cloud architecture, AI/ML, and scalable systems. He oversees our technical strategy and ensures we stay at the forefront of technological innovation.',
+    email: 'david.wilson@company.com',
+    phone: '+1 (555) 234-5678',
+    location: 'San Francisco, CA',
+    joinDate: 'March 2021',
+    teamSize: 85,
+    achievements: [
+      'Migrated entire infrastructure to cloud',
+      'Reduced system downtime by 99.5%',
+      'Led development of award-winning mobile app',
+      'Established engineering best practices',
+    ],
+    image: '',
+  },
+  {
+    id: '3',
+    name: 'Alex Rodriguez',
+    position: 'VP of Human Resources',
+    department: 'Human Resources',
+    description: 'Alex is passionate about creating inclusive workplaces and fostering employee growth. With a background in organizational psychology, Alex has transformed our HR practices and culture.',
+    email: 'alex.rodriguez@company.com',
+    phone: '+1 (555) 345-6789',
+    location: 'Austin, TX',
+    joinDate: 'September 2019',
+    teamSize: 25,
+    achievements: [
+      'Increased employee satisfaction by 40%',
+      'Implemented diversity and inclusion programs',
+      'Reduced employee turnover by 60%',
+      'Launched comprehensive wellness program',
+    ],
+    image: '',
+  },
+  {
+    id: '4',
+    name: 'Emma Davis',
+    position: 'VP of Marketing',
+    department: 'Marketing',
+    description: 'Emma is a creative marketing strategist with a proven track record of building brand awareness and driving customer engagement through innovative campaigns and digital strategies.',
+    email: 'emma.davis@company.com',
+    phone: '+1 (555) 456-7890',
+    location: 'Los Angeles, CA',
+    joinDate: 'June 2020',
+    teamSize: 35,
+    achievements: [
+      'Increased brand awareness by 250%',
+      'Won Digital Marketing Campaign of the Year',
+      'Grew social media following to 1M+',
+      'Launched successful influencer partnerships',
+    ],
+    image: '',
+  },
+  {
+    id: '5',
+    name: 'Mike Chen',
+    position: 'VP of Sales',
+    department: 'Sales',
+    description: 'Mike is a results-driven sales leader who has consistently exceeded targets and built strong client relationships. His strategic approach to sales has been key to our market expansion.',
+    email: 'mike.chen@company.com',
+    phone: '+1 (555) 567-8901',
+    location: 'Chicago, IL',
+    joinDate: 'November 2020',
+    teamSize: 50,
+    achievements: [
+      'Exceeded sales targets by 150% annually',
+      'Closed largest deal in company history',
+      'Expanded into 5 new international markets',
+      'Built high-performing sales team',
+    ],
+    image: '',
+  },
+  {
+    id: '6',
+    name: 'Lisa Park',
+    position: 'Chief Financial Officer',
+    department: 'Finance',
+    description: 'Lisa brings deep financial expertise and strategic thinking to our organization. She has been instrumental in securing funding, optimizing operations, and ensuring fiscal responsibility.',
+    email: 'lisa.park@company.com',
+    phone: '+1 (555) 678-9012',
+    location: 'Boston, MA',
+    joinDate: 'February 2021',
+    teamSize: 20,
+    achievements: [
+      'Secured $50M in Series B funding',
+      'Improved profit margins by 30%',
+      'Implemented financial forecasting systems',
+      'Led successful IPO preparation',
+    ],
+    image: '',
+  },
+  {
+    id: '7',
+    name: 'James Thompson',
+    position: 'VP of Operations',
+    department: 'Operations',
+    description: 'James streamlines our operational processes and ensures efficient delivery of services. His expertise in process optimization has significantly improved our operational efficiency.',
+    email: 'james.thompson@company.com',
+    phone: '+1 (555) 789-0123',
+    location: 'Denver, CO',
+    joinDate: 'April 2021',
+    teamSize: 40,
+    achievements: [
+      'Reduced operational costs by 25%',
+      'Implemented lean manufacturing principles',
+      'Improved delivery times by 40%',
+      'Led digital transformation initiatives',
+    ],
+    image: '',
+  },
+  {
+    id: '8',
+    name: 'Maria Garcia',
+    position: 'VP of Legal Affairs',
+    department: 'Legal',
+    description: 'Maria oversees all legal matters and ensures compliance across all business operations. Her expertise in corporate law has been crucial in our expansion efforts.',
+    email: 'maria.garcia@company.com',
+    phone: '+1 (555) 890-1234',
+    location: 'Miami, FL',
+    joinDate: 'August 2020',
+    teamSize: 15,
+    achievements: [
+      'Successfully handled 5 major acquisitions',
+      'Established global compliance framework',
+      'Reduced legal risks by 60%',
+      'Led intellectual property strategy',
+    ],
+    image: '',
+  },
+  {
+    id: '9',
+    name: 'Robert Kim',
+    position: 'VP of Customer Success',
+    department: 'Customer Success',
+    description: 'Robert focuses on ensuring customer satisfaction and building long-term relationships. His customer-centric approach has significantly improved retention rates.',
+    email: 'robert.kim@company.com',
+    phone: '+1 (555) 901-2345',
+    location: 'Seattle, WA',
+    joinDate: 'December 2020',
+    teamSize: 30,
+    achievements: [
+      'Increased customer retention by 45%',
+      'Implemented customer success platform',
+      'Reduced churn rate by 50%',
+      'Built world-class support team',
+    ],
+    image: '',
+  },
+  {
+    id: '10',
+    name: 'Jennifer Lee',
+    position: 'VP of Product',
+    department: 'Product',
+    description: 'Jennifer leads our product strategy and development roadmap. Her vision for user experience and product innovation has been key to our competitive advantage.',
+    email: 'jennifer.lee@company.com',
+    phone: '+1 (555) 012-3456',
+    location: 'Portland, OR',
+    joinDate: 'January 2022',
+    teamSize: 55,
+    achievements: [
+      'Launched 3 successful product lines',
+      'Increased user engagement by 80%',
+      'Led product team expansion',
+      'Won Product Innovation Award 2023',
+    ],
+    image: '',
+  },
+  {
+    id: '11',
+    name: 'Anthony Brown',
+    position: 'VP of Business Development',
+    department: 'Business Development',
+    description: 'Anthony identifies growth opportunities and builds strategic partnerships. His network and negotiation skills have opened new markets for our expansion.',
+    email: 'anthony.brown@company.com',
+    phone: '+1 (555) 123-4567',
+    location: 'Dallas, TX',
+    joinDate: 'May 2021',
+    teamSize: 20,
+    achievements: [
+      'Secured partnerships worth $100M+',
+      'Expanded into 10 new markets',
+      'Built strategic alliance program',
+      'Increased revenue pipeline by 200%',
+    ],
+    image: '',
+  },
+  {
+    id: '12',
+    name: 'Rachel Adams',
+    position: 'VP of Data & Analytics',
+    department: 'Data Science',
+    description: 'Rachel leads our data strategy and analytics initiatives. Her insights have transformed how we make decisions and understand our business performance.',
+    email: 'rachel.adams@company.com',
+    phone: '+1 (555) 234-5678',
+    location: 'San Jose, CA',
+    joinDate: 'September 2021',
+    teamSize: 25,
+    achievements: [
+      'Built company-wide data platform',
+      'Implemented AI-driven insights',
+      'Improved decision accuracy by 70%',
+      'Led data governance initiatives',
+    ],
+    image: '',
+  },
+  {
+    id: '13',
+    name: 'Kevin Martinez',
+    position: 'VP of Quality Assurance',
+    department: 'Quality',
+    description: 'Kevin ensures the highest quality standards across all our products and services. His commitment to excellence has earned us industry recognition for quality.',
+    email: 'kevin.martinez@company.com',
+    phone: '+1 (555) 345-6789',
+    location: 'Phoenix, AZ',
+    joinDate: 'July 2021',
+    teamSize: 35,
+    achievements: [
+      'Achieved ISO 9001 certification',
+      'Reduced defect rates by 90%',
+      'Implemented quality management system',
+      'Won Quality Excellence Award 2023',
+    ],
+    image: '',
+  },
+];
+
+// Mock leaders data for admin (smaller set)
+export const mockAdminLeaders: Leader[] = [
+  {
+    id: '1',
+    name: 'Sarah Johnson',
+    position: 'Chief Executive Officer',
+    department: 'Executive',
+    description: 'Sarah brings over 15 years of leadership experience in technology and innovation. She has been instrumental in driving our company\'s growth and establishing our market presence.',
+    email: 'sarah.johnson@company.com',
+    phone: '+1 (555) 123-4567',
+    location: 'New York, NY',
+    joinDate: 'January 2020',
+    teamSize: 200,
+    achievements: [
+      'Led company through 300% revenue growth',
+      'Named Tech Leader of the Year 2023',
+    ],
+    image: '',
+  },
+  {
+    id: '2',
+    name: 'David Wilson',
+    position: 'Chief Technology Officer',
+    department: 'Technology',
+    description: 'David is a seasoned technology leader with expertise in cloud architecture, AI/ML, and scalable systems.',
+    email: 'david.wilson@company.com',
+    phone: '+1 (555) 234-5678',
+    location: 'San Francisco, CA',
+    joinDate: 'March 2021',
+    teamSize: 85,
+    achievements: [
+      'Migrated entire infrastructure to cloud',
+      'Reduced system downtime by 99.5%',
+    ],
+    image: '',
+  },
+];
+
+// Available departments for filtering
+export const leaderDepartments = [
+  'Executive',
+  'Technology',
+  'Human Resources',
+  'Marketing',
+  'Sales',
+  'Finance',
+  'Operations',
+  'Legal',
+  'Customer Success',
+  'Product',
+  'Business Development',
+  'Data Science',
+  'Quality',
+];
